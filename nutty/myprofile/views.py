@@ -134,7 +134,7 @@ def index(request):
     </style>
 </head>
 
-<body>
+<body style="margin: 0px !important;">
 
     <div class="hscreen flex flexcol justifybetween px8 mybackground">
         <div class="flex flexrow justifybetween pt10">
