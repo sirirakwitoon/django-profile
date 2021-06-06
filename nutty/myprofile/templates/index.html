@@ -52,7 +52,7 @@
         }
         
         .ml2 {
-            margin-left: 0.5rem;
+            margin-left: 2rem;
         }
         
         .mb8 {
@@ -95,6 +95,10 @@
             align-items: center;
         }
         
+        .itemstart {
+            align-items: flex-start;
+        }
+        
         .rotate90 {
             rotate: 90deg;
         }
@@ -107,15 +111,20 @@
         }
         
         .sirirak {
-            font-size: 72px;
+            font-size: 32px;
         }
         
         .nutsrk {
-            font-size: 32px;
+            font-size: 62px;
         }
         
         .itemsbaseline {
             align-items: baseline;
+        }
+        
+        h1 {
+            margin-top: 0px;
+            margin-bottom: 0px;
         }
     </style>
 </head>
@@ -124,10 +133,13 @@
 
     <div class="hscreen flex flexcol justifybetween px8 mybackground">
         <div class="flex flexrow justifybetween pt10">
-            <div class="flex fontbold itemsbaseline">
-                <h1 class="textyellow500 sirirak">Sirirak </h1>
-                <h1 class="ml2 sirirak ">Witoon</h1>
-                <h1 class="ml2 textyellow500 nutsrk"> (Nutsrk) </h1>
+            <div class="flex flexcol fontbold itemstart pt10 ">
+                <div class="flex">
+                    <h1 class=" sirirak">Wellcome to&nbsp;</h1>
+
+                    <h1 class=" sirirak "> My Profile</h1>
+                </div>
+                <h1 class="textyellow500 nutsrk pt10" style="margin-left:250px"> Sirirak Witoon </h1>
 
             </div>
             <div class="grid gridcols4 gap4 fontbold">
@@ -155,6 +167,17 @@
                     <h3 class="fontbold">Phone </h3>
                     <h3 class="ml2">092-772-5330</h3>
                 </div>
+            </div>
+            <div class="flex flexcol itemscenter ">
+                <a href="https://www.facebook.com/nut.ty.125" target="_blank">
+                    <img src="static/facebooklogo.png" style="width: 70px; " />
+                </a>
+                <a href="https://www.instagram.com/nutsrk/" target="_blank">
+                    <img src="static/instagram.png" style="width: 70px; margin-top: 12px;" />
+                </a>
+                <a href="https://github.com/sirirakwitoon/" target="_blank">
+                    <img src="static/github.png" style="width: 45px; margin-top: 15px;" />
+                </a>
             </div>
 
         </div>
