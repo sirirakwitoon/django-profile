@@ -34,6 +34,10 @@
             justify-content: space-between;
         }
         
+        .justifyend {
+            justify-content: flex-end;
+        }
+        
         .px8 {
             padding-right: 2rem;
             padding-left: 2rem;
@@ -49,6 +53,10 @@
         
         .textyellow500 {
             color: rgb(245, 158, 11);
+        }
+        
+        .yellow500 {
+            background-color: rgb(245, 158, 11);
         }
         
         .ml2 {
@@ -126,6 +134,29 @@
             margin-top: 0px;
             margin-bottom: 0px;
         }
+        
+        .myemailfield {
+            height: 44px;
+            padding: 10px 10px;
+            border-radius: 8px;
+            border: none;
+        }
+        
+        .followme {
+            padding: 10px 5px;
+            margin-top: 16px;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0px 4px 31px -7px rgba(0, 0, 0, 0.62);
+        }
+        
+        .followme:hover {
+            background-color: rgb(228, 148, 9);
+        }
     </style>
 </head>
 
@@ -139,7 +170,7 @@
 
                     <h1 class=" sirirak "> My Profile</h1>
                 </div>
-                <h1 class="textyellow500 nutsrk pt10" style="margin-left:250px"> Sirirak Witoon </h1>
+                <h1 class="textyellow500 nutsrk pt10" style="margin-left:250px"> {{name}} </h1>
 
             </div>
             <div class="grid gridcols4 gap4 fontbold">
@@ -157,31 +188,42 @@
                 </h3>
             </div>
         </div>
+        <div class="flex justifyend wfull">
+            <div style="width: 400px; height: 200px; background-color: rgba(250, 235, 215, 0.509); border-radius: 16px; margin-right: 100px; ">
+                <form action="." method="POST" class="flex flexcol " style="padding: 3rem; ">
+                    {% csrf_token %} 
+                    {{form.email}}
+                    <button class="yellow500 followme" type="submit ">Follow Me</button>
+                </form>
+            </div>
+        </div>
         <div class="pb10 flex flexrow justifybetween itemsend ">
-            <div class="flex flexcol">
-                <div class="flex">
-                    <h3 class="fontbold">Email </h3>
-                    <h3 class="ml2">nutsrk@odds.team</h3>
+            <div class="flex flexcol ">
+                <div class="flex ">
+                    <h3 class="fontbold ">Email </h3>
+                    <h3 class="ml2 ">nutsrk@odds.team</h3>
                 </div>
-                <div class="flex">
-                    <h3 class="fontbold">Phone </h3>
-                    <h3 class="ml2">092-772-5330</h3>
+                <div class="flex ">
+                    <h3 class="fontbold ">Phone </h3>
+                    <h3 class="ml2 ">092-772-5330</h3>
                 </div>
             </div>
             <div class="flex flexcol itemscenter ">
-                <a href="https://www.facebook.com/nut.ty.125" target="_blank">
-                    <img src="static/facebooklogo.png" style="width: 70px; " />
+                <a href={{facebook_url}} target="_blank ">
+                    <img src="static/facebooklogo.png " style="width: 70px; " />
                 </a>
-                <a href="https://www.instagram.com/nutsrk/" target="_blank">
-                    <img src="static/instagram.png" style="width: 70px; margin-top: 12px;" />
+                <a href="https://www.instagram.com/nutsrk/ " target="_blank ">
+                    <img src="static/instagram.png " style="width: 70px; margin-top: 12px; " />
                 </a>
-                <a href="https://github.com/sirirakwitoon/" target="_blank">
-                    <img src="static/github.png" style="width: 45px; margin-top: 15px;" />
+                <a href="https://github.com/sirirakwitoon/ " target="_blank ">
+                    <img src="static/github.png " style="width: 45px; margin-top: 15px; " />
                 </a>
             </div>
 
         </div>
+
     </div>
+
 
 </body>
 
