@@ -27,8 +27,7 @@ class IndexView(View):
                 "instagram_url": instagram_url,
                 "github_url": github_url,
                 "form": form,
-
-            }
+            },
         )
 
     def post(self, request):
@@ -41,8 +40,7 @@ class IndexView(View):
         if form.is_valid():
             print(form.cleaned_data)
             print(form.cleaned_data.get("email"))
-            Subscriberlist.objects.create(
-                email=form.cleaned_data.get("email"))
+            Subscriberlist.objects.create(email=form.cleaned_data.get("email"))
             # Ready to save into
 
         facebook_url = "https://www.facebook.com/nut.ty.125"
@@ -58,5 +56,5 @@ class IndexView(View):
                 "instagram_url": instagram_url,
                 "github_url": github_url,
                 "form": form,
-            }
+            },
         )
