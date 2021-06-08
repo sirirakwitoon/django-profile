@@ -1,7 +1,7 @@
 from django import forms
 from django.shortcuts import render
 from django.views import View
-from myprofile.models import Profile
+from myprofile.models import Profile, Subscriberlist
 from myprofile.forms import SubscriberForm
 
 
@@ -41,8 +41,8 @@ class IndexView(View):
         if form.is_valid():
             print(form.cleaned_data)
             print(form.cleaned_data.get("email"))
-            Profile.objects.create(
-                name="", email=form.cleaned_data.get("email"))
+            Subscriberlist.objects.create(
+                email=form.cleaned_data.get("email"))
             # Ready to save into
 
         facebook_url = "https://www.facebook.com/nut.ty.125"

@@ -190,10 +190,9 @@
         </div>
         <div class="flex justifyend wfull">
             <div style="width: 400px; height: 200px; background-color: rgba(250, 235, 215, 0.509); border-radius: 16px; margin-right: 100px; ">
-                <form action="." method="POST" class="flex flexcol " style="padding: 3rem; ">
-                    {% csrf_token %} 
-                    {{form.email}}
-                    <button class="yellow500 followme" type="submit ">Follow Me</button>
+                <form id="myForm" action="." method="POST" class="flex flexcol " style="padding: 3rem;">
+                    {% csrf_token %} {{form.email}}
+                    <button class="yellow500 followme" type="submit">Follow Me</button>
                 </form>
             </div>
         </div>
@@ -221,10 +220,7 @@
             </div>
 
         </div>
-
     </div>
-
-
 </body>
 
 </html>
