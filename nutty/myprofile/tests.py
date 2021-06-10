@@ -11,6 +11,17 @@ class TestProfile(TestCase):
 
         assert profile.name == "Sirirak"
 
+    def test_profile_should_have_fields_email(self):
+        profile = Profile.objects.create(
+            email="nutsrk@odds.team"
+        )
+class TesSubscriberlist(TestCase):
+    def test_scriberlist_should_have_email(self):
+        subscriberlist = Subscriberlist.objects.create(
+            email="nutsrk@odds.team"
+        )
+
+
 
 class TestIndexView(TestCase):
     def test_index_view_should_my_name(self):
