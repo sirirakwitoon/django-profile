@@ -1,4 +1,4 @@
-from django import forms
+# from django import forms
 from django.shortcuts import render
 from django.views import View
 from myprofile.models import Profile, Subscriberlist

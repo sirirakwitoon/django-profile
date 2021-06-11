@@ -1,4 +1,4 @@
-from django.http import response
+# from django.http import response
 from django.test import TestCase
 from myprofile.models import Profile, Subscriberlist
 
@@ -15,12 +15,15 @@ class TestProfile(TestCase):
         profile = Profile.objects.create(
             email="nutsrk@odds.team"
         )
+        assert profile.email == "nutsrk@odds.team"
+
+
 class TesSubscriberlist(TestCase):
     def test_scriberlist_should_have_email(self):
         subscriberlist = Subscriberlist.objects.create(
             email="nutsrk@odds.team"
         )
-
+        assert subscriberlist.email == "nutsrk@odds.team"
 
 
 class TestIndexView(TestCase):
@@ -32,7 +35,7 @@ class TestIndexView(TestCase):
         response = self.client.get("/")
         response = self.client.get("/")
 
-         # Then
+        # Then
         assert response.status_code == 200
 
     def test_index_view_should_save_subscriber_email_when_input_form(self):
@@ -42,10 +45,10 @@ class TestIndexView(TestCase):
 
         # When
         data = {
-            "email":"nutsrk@odds.team"
+            "email": "nutsrk@odds.team"
         }
         response = self.client.post("/", data=data)
-
+        assert response.email == "nutsrk@odds.team"
         # Then
         subscriber = Subscriberlist.objects.last()
         assert subscriber.email == "nutsrk@odds.team"
@@ -54,15 +57,13 @@ class TestIndexView(TestCase):
         # Given
         Profile.objects.create(name="Sirirak")
 
-        #When
-        data ={
-            "email":"nutty.com"
+        # When
+        data = {
+            "email": "nutty.com"
         }
-        self.client.post("/",data={"email":"nutsrk@odds.team"})
-        self.client.post("/",data=data)
+        self.client.post("/", data={"email": "nutsrk@odds.team"})
+        self.client.post("/", data=data)
 
-        #Then
+        # Then
         subscriber = Subscriberlist.objects.last()
         assert subscriber.email != "nutty.com"
-
-    
