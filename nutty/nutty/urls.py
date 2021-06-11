@@ -15,9 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from myprofile.views import IndexView
+from myprofile.views import (
+
+IndexView,
+SubscriberAPIView,
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', IndexView.as_view())
+    path('', IndexView.as_view()),
+    path("subscribers/", SubscriberAPIView.as_view())
 ]
