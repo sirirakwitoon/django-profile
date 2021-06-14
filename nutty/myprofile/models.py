@@ -9,7 +9,7 @@ class Profile(models.Model):
     tel = models.CharField(max_length=100)
     facebook_url = models.CharField(max_length=100)
     instagram_url = models.CharField(max_length=100)
-    github = models.CharField(max_length=100)
+    github_url = models.CharField(max_length=100)
 
 
 class Subscriberlist(models.Model):

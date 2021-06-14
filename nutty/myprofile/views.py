@@ -67,12 +67,6 @@ class IndexView(View):
 
 class SubscriberAPIView(APIView):
     def get(self, request):
-        # data = {
-        #     "text": "Hello Nutty"
-        # }
-        # return JsonResponse(
-        #     data
-        # )
 
         subscriber = Subscriberlist.objects.all()
         serializers = SubscriberSerializer(subscriber, many=True)
@@ -94,21 +88,6 @@ class ProfileAPIView(APIView):
     def get(self, request):
         profiles = Profile.objects.all()
         serializer = ProfileSerializer(profiles, many=True)
-        return Response(serializer.data)
-
-    def post(self, request):
-        serializer = ProfileSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-class ProfileDetail(APIView):
-    def get(self, request):
-        profile = Profile.objects.first()
-        serializer = ProfileSerializer(profile)
-
         return Response(serializer.data)
 
     def post(self, request):

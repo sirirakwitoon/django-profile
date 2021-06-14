@@ -15,7 +15,7 @@ class ProfileSerializer(serializers.Serializer):
     tel = serializers.CharField(max_length=100)
     facebook_url = serializers.CharField(max_length=100)
     instagram_url = serializers.CharField(max_length=100)
-    github = serializers.CharField(max_length=100)
+    github_url = serializers.CharField(max_length=100)
 
     def create(self, validated_data):
         return Profile.objects.create(**validated_data)
