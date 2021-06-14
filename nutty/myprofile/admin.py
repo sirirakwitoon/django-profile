@@ -6,7 +6,7 @@ from myprofile.models import Profile, Subscriberlist
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
     list_display = (
-        "name", "email",
+        "name", "email", "tel", "facebook_url", "instagram_url", "github"
     )
 
     search_fields = (

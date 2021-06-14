@@ -16,13 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from myprofile.views import (
-
-IndexView,
-SubscriberAPIView,
+    IndexView,
+    SubscriberAPIView,
+    ProfileAPIView
 )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view()),
-    path("subscribers/", SubscriberAPIView.as_view())
+    path("subscribers/", SubscriberAPIView.as_view()),
+    path("profile/", ProfileAPIView.as_view())
+
 ]

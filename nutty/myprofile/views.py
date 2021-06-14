@@ -1,15 +1,13 @@
 # from django import forms
-import re
-from django.http.response import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.views import View
-from rest_framework import serializers
-from myprofile.models import Profile, Subscriberlist
-from myprofile.forms import SubscriberForm
-from myprofile.serializers import SubscriberSerializer
+from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework import status
+
+from myprofile.forms import SubscriberForm
+from myprofile.models import Profile, Subscriberlist
+from myprofile.serializers import ProfileSerializer, SubscriberSerializer
 
 
 def index(request):
@@ -76,7 +74,6 @@ class SubscriberAPIView(APIView):
         #     data
         # )
 
-
         subscriber = Subscriberlist.objects.all()
         serializers = SubscriberSerializer(subscriber, many=True)
 
@@ -92,3 +89,31 @@ class SubscriberAPIView(APIView):
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+class ProfileAPIView(APIView):
+    def get(self, request):
+        profiles = Profile.objects.all()
+        serializer = ProfileSerializer(profiles, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = ProfileSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ProfileDetail(APIView):
+    def get(self, request):
+        profile = Profile.objects.first()
+        serializer = ProfileSerializer(profile)
+
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = ProfileSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
