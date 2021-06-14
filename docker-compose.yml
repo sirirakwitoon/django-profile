@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  nginx:
+    image: nutty-nginx
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 9999:80
+    networks:
+      - nutty
+
+  db:
+    images: postgres
+
+  django:
+    image: nutsrk/nutty-django
+    build:
+        context: .
+        dockerfile: Dockerfile-django
+    volumes:
+      - .:/app
+    ports:
+      - 9998:8000
+    networks:
+      - nutty
+    command: /start
+
+networks:
+  nutty:
+    external: true
